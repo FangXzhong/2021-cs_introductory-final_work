@@ -1,0 +1,4 @@
+﻿系列配置项
+https://pyecharts.org/#/zh-cn/series_options
+
+ItemStyleOpts：图元样式配置项

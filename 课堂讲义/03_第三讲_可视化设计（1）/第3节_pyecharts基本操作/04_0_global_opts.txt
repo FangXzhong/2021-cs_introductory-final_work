@@ -1,0 +1,11 @@
+全局配置项，通过 set_global_options 方法设置
+https://pyecharts.org/#/zh-cn/global_options
+
+ToolboxOpts：工具箱配置项
+https://pyecharts.org/#/zh-cn/global_options?id=toolboxopts%EF%BC%9A%E5%B7%A5%E5%85%B7%E7%AE%B1%E9%85%8D%E7%BD%AE%E9%A1%B9
+
+LegendOpts：图例配置项
+https://pyecharts.org/#/zh-cn/global_options?id=legendopts%EF%BC%9A%E5%9B%BE%E4%BE%8B%E9%85%8D%E7%BD%AE%E9%A1%B9
+
+DataZoomOpts：区域缩放配置项
+https://pyecharts.org/#/zh-cn/global_options?id=datazoomopts%EF%BC%9A%E5%8C%BA%E5%9F%9F%E7%BC%A9%E6%94%BE%E9%85%8D%E7%BD%AE%E9%A1%B9
