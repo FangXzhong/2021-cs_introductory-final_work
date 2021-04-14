@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="e8d22faf-205c-44fe-8e2a-ccde54257573" name="杭州服务器">
-        <fileTransfer rootFolder="/data/git文件" accessType="SFTP" host="8.136.117.159" port="22" sshConfigId="4d7f8a82-2ad3-4f0a-a34d-8dd9a657f958" sshConfig="user1@8.136.117.159:22 password">
+        <fileTransfer rootFolder="/root/app.git" accessType="SFTP" host="8.136.117.159" port="22" sshConfigId="4d7f8a82-2ad3-4f0a-a34d-8dd9a657f958" sshConfig="root@8.136.117.159:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
