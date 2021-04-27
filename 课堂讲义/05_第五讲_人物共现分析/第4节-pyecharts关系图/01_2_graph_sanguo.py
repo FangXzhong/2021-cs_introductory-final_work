@@ -58,7 +58,7 @@ c = Graph()
 c.add("", 
       node_in_graph, 
       link_in_graph, 
-      edge_length=[10,50], 
+      edge_length=[10, 50],
       repulsion=5000,
       layout="force",  # "force"-力引导布局，"circular"-环形布局
       )

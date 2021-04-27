@@ -1,0 +1,30 @@
+.centered
+{
+	text-align:center;
+}
+.highlight_text
+{
+	color:red;
+	font-style:italic;
+}	
+.normal_text
+{
+	color:black;
+}
+.deleted_text
+{
+	color:grey;
+	text-decoration:line-through;
+}
+p
+{
+	text-align:left;
+}
+#Tom
+{
+	font-family:"Times New Roman"
+}
+#Carl
+{
+	font-family:Courier
+}
