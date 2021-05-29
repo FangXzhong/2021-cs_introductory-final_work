@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="杭州服务器" uploadOnCheckin="e8d22faf-205c-44fe-8e2a-ccde54257573" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="杭州服务器" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="杭州服务器">
         <serverdata>
@@ -10,6 +10,5 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="杭州服务器" />
   </component>
 </project>
