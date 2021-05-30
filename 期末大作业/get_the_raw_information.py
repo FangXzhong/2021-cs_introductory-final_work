@@ -80,7 +80,7 @@ def beike_get_url(city='北京'):
             if pq1('a').attr('href') is not None and pq1('a').attr('href')[-4:] == 'html':
                 url_list.append(pq1('a').attr('href'))
         del url_list[-1]
-        break
+        # break
     print(len(url_list))
     return url_list
 
@@ -134,16 +134,21 @@ def anjvke_get_url(city='北京'):
         c += ''.join(i)
 
     # 初始化程序窗口
-    chromeOptions = webdriver.ChromeOptions()
-    # chromeOptions.add_argument("--proxy-server=http://142.238.66.0:9999")
-    browser = webdriver.Chrome(chrome_options=chromeOptions)
-    browser.get('https://{}.anjuke.com/'.format(c))
+    chrome_options = Options()
+    chrome_options.add_argument(
+        'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
+        ' Chrome/86.0.4240.75 Safari/537.36')
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+    chrome_options.add_experimental_option('excludeSwitches', ['enable-automation'])
+    browser = webdriver.Chrome(options=chrome_options)
+    browser.get('https://{}.anjuke.com/sale/rd1/?kw=&from=sugg'.format(c))
     browser.maximize_window()
+    input('此处可能有拼图验证')
 
-    # 直接单击房源搜索，跳转到房源列表
-    text = browser.find_element_by_xpath('/html/body/div[2]/div[2]/div[1]/div[1]/div/div[2]/form[2]/div/a[1]/input')
-    text.send_keys(Keys.ENTER)
-    input("验证过后，单击回车")
+    # # 直接单击房源搜索，跳转到房源列表
+    # text = browser.find_element_by_xpath('/html/body/div[2]/div[2]/div[1]/div[1]/div/div[2]/form[2]/div/a[1]/input')
+    # text.send_keys(Keys.ENTER)
+    # input("验证过后，单击回车")
 
     # 遍历第一页页面的房源信息
     url_list = []
@@ -160,8 +165,9 @@ def anjvke_get_url(city='北京'):
     browser.quit()
 
     # 接下来遍历剩余的所有页
-    while True:
-        page_number = 2
+    flag = 1
+    page_number = 2
+    while flag:
         html = 'https://{}.anjuke.com/sale/p{}/?from=sugg'.format(city, str(page_number))
         print(html)
         content = requests.get(html).text
@@ -177,11 +183,13 @@ def anjvke_get_url(city='北京'):
                                  'section.list-left > section.pagination-wrap > div')
         bs = BeautifulSoup(str(pagination_doc))
         for item in bs.find_all("a"):
-            if item.text == "上一页":
+            if item.text != "下一页":
                 continue
             # 定位到“下一页”按钮，如果按不下去，就是最后一页
+            print(item)
             if 'forbid' in str(''.join(item['class'])):
-                break
+                print("最后一页！")
+                flag = 0
     print(len(url_list))
     return url_list
 
@@ -196,7 +204,7 @@ def fangduoduo():
 
 if __name__ == '__main__':
     """
-    以下内容主要用于测试时使用
+    以下内容主要用于编写程序测试时使用
     """
     # list1 = beike_get_url()  # 接收所有房源网址
     # list2 = list()  # 接收所有房源信息
@@ -207,5 +215,9 @@ if __name__ == '__main__':
     #     list2.append(beike_get_information('北京', url=item))
     #     count += 1
     # print(list2)
+    # f = open('1.csv', 'w', encoding='utf8')
+    # for item in list2:
+    #     f.write(",".join(item) + '\n')
+    # f.close()
 
-    anjvke_get_url()
+    # anjvke_get_url()
